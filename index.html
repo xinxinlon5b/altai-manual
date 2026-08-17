@@ -563,75 +563,280 @@ tar -czf backup-$(date +%Y%m%d).tar.gz data/ config/</code></pre>
 
   <div class="faq-item"><details>
     <summary>这系统是干什么的？一句话说清楚</summary>
-    <div class="ans"><p>它是一台"自动获客的发动机"：自动去俄罗斯的 VK/Telegram 等平台找"正在找物流的人"，用 AI 筛出最值得聊的，生成客户画像和话术，帮你触达、跟进。</p></div>
+    <div class="ans">
+      <p><strong>一句话：</strong>它是一台<strong>"自动获客的发动机"</strong>——自动去俄罗斯的 VK / Telegram 等平台，找到"正在找中国物流的人"，用 AI 筛出最值得聊的客户，生成画像和话术，帮你触达、跟进。</p>
+      <p><strong>展开说：</strong>传统做法是员工每天手动刷平台、大海捞针找客户、凭感觉判断谁靠谱、自己编话术发消息——又慢又不稳定。这套系统把整个过程拆成 6 个环节自动化：</p>
+      <div class="grid">
+        <div class="mini"><h4>① 采集</h4><p>自动去平台找"进口车商/电商卖家/批发商"这类目标客户</p></div>
+        <div class="mini"><h4>② 评分</h4><p>AI 用 5 个维度判断谁最可能成交</p></div>
+        <div class="mini"><h4>③ 画像</h4><p>给每个客户生成 10 维画像：做什么的、多大、痛点、需求</p></div>
+        <div class="mini"><h4>④ 话术</h4><p>根据画像生成个性化开场白（不是群发模板）</p></div>
+        <div class="mini"><h4>⑤ 触达</h4><p>在平台私信触达（老板确认后才会真发）</p></div>
+        <div class="mini"><h4>⑥ 跟进</h4><p>没回复的自动排期 D+1 / D+3 跟进，回复了立即转人工</p></div>
+      </div>
+      <div class="callout blue"><div class="t">💡 小白解读</div>你可以把它想成一台"钓鱼机"：它自己撒网（采集）、自己看哪条鱼值得钓（评分）、自己准备鱼饵（画像+话术）、自己甩竿（触达）、自己盯着有没有鱼上钩（跟进）。员工只需要打开网页看结果、点几下按钮。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>我要不要懂技术？要装什么？</summary>
-    <div class="ans"><p>完全不用懂技术。交付包双击启动，浏览器打开网页就能用。唯一的环境要求是装一个 Docker（我们远程帮你装好）。</p></div>
+    <div class="ans">
+      <p><strong>完全不用懂技术。</strong>交付的时候，我们会远程帮你把 Docker 装好、把系统启动好、把网页打开给你看。你只需要：</p>
+      <div class="grid">
+        <div class="mini"><h4>✅ 你要做的（就 3 步）</h4><p>① 双击启动图标 → ② 浏览器打开网页 → ③ 员工登记名字开始用</p></div>
+        <div class="mini"><h4>🔧 我们做的</h4><p>装 Docker、配环境、放容器、接数据、测通、给你培训（包教会）</p></div>
+      </div>
+      <p><strong>技术细节</strong>：系统装在 Docker 容器里（就像"精装小盒子"，见 Docker 科普章节），环境 100% 一致。你不需要会命令行、不需要懂代码、不需要会配置服务器。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>就像你买冰箱不需要会修压缩机——你只管用，坏了有人修。唯一"要记住的"就是：别把运行系统的电脑关机太久。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>它和微信/抖音那些工具一样吗？</summary>
-    <div class="ans"><p>不一样。那些工具是"发内容等客户来"，这套是"主动去找客户"——去俄罗斯社交平台找正在找物流的人，AI 筛选后主动触达。</p></div>
+    <div class="ans">
+      <p><strong>不一样，方向正好相反。</strong></p>
+      <table>
+        <tr><th>对比</th><th>微信/抖音工具（内容引流）</th><th>这套系统（主动获客）</th></tr>
+        <tr><td>逻辑</td><td>发内容 → 等客户刷到 → 客户主动来问</td><td>主动去平台找客户 → AI 筛选 → 主动私信触达</td></tr>
+        <tr><td>主动权</td><td>在客户手里（他不刷到就没戏）</td><td>在你手里（筛出名单主动聊）</td></tr>
+        <tr><td>见效</td><td>慢，靠内容积累</td><td>快，当天就能有"今天该聊谁"</td></tr>
+        <tr><td>适合</td><td>品牌曝光、长线运营</td><td>B2B 获客、直接找客户</td></tr>
+      </table>
+      <p><strong>但两者可以互补</strong>：内容引流是"等鱼来"，这套是"主动找鱼"。俄罗斯市场 B2B 物流获客，主动触达的效果更直接。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>那些工具是"开店等客人上门"，这套是"业务员主动跑客户"——中俄物流这种生意，主动跑才快。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>为什么用容器而不是装个软件？</summary>
-    <div class="ans"><p>容器 = 环境 100% 一致 + 完全独立运行 + 升级不丢数据 + 换电脑秒级迁移。对客户来说就是"打开就能用，不用折腾环境"。</p></div>
+    <div class="ans">
+      <p><strong>因为容器能解决传统软件最大的痛：环境问题。</strong></p>
+      <p>传统部署软件就像<strong>租一套毛坯大房子</strong>：要自己装水电、家具、空调，环境很容易乱——A 软件要 Python 3.8，B 软件要 Python 3.12，两个就打架。而 Docker 容器相当于一个个<strong>标准化"精装小盒子"</strong>：盒子里面打包好了程序本身 + 运行需要的全部依赖、配置、环境，在任何装了 Docker 的电脑上都能一模一样地跑。</p>
+      <table>
+        <tr><th>对比</th><th>普通软件</th><th>容器（我们做的）</th></tr>
+        <tr><td>安装</td><td>每台电脑环境不同，容易装不上</td><td>环境 100% 一致，一条命令启动</td></tr>
+        <tr><td>运行</td><td>依赖桌面程序开着</td><td>独立后台运行，开机自启</td></tr>
+        <tr><td>升级</td><td>重新装，可能丢数据</td><td>换新容器，数据卷保留</td></tr>
+        <tr><td>换电脑</td><td>重新配一遍环境</td><td>拷贝容器+数据，秒级迁移</td></tr>
+      </table>
+      <div class="callout blue"><div class="t">💡 小白解读</div>对我们客户来说就一句话：<strong>打开就能用，不用折腾环境</strong>。这也是行业主流——几乎所有互联网公司部署项目都用 Docker。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>它真的能自己抓数据吗？</summary>
-    <div class="ans"><p>能。目前已经真实采集了 VK 2199 条、Telegram 495 条等线索，都是真实平台数据。采集、评分、画像、话术都是真实跑通的。触达需要平台登录后激活（一次性配置）。</p></div>
+    <div class="ans">
+      <p><strong>能，而且已经真实跑通。</strong>这是 2026-08-17 的实测数据：</p>
+      <table>
+        <tr><th>平台</th><th>已采集</th><th>状态</th></tr>
+        <tr><td>VK（俄罗斯最大社交平台）</td><td>2,199 条</td><td>✅ 真实数据</td></tr>
+        <tr><td>Telegram</td><td>495 条</td><td>✅ 真实数据</td></tr>
+        <tr><td>速卖通</td><td>143 条</td><td>✅ 真实数据</td></tr>
+        <tr><td>WhatsApp</td><td>29 条</td><td>✅ 真实数据</td></tr>
+        <tr><td>抖音</td><td>7 条</td><td>✅ 真实数据</td></tr>
+      </table>
+      <p>这些不是演示数据，是真实从平台抓回来的客户线索。采集 → AI 评分（1,074 条已评分）→ 客户画像 → 话术生成，整条链路都已真实跑通。</p>
+      <p><strong>唯一需要激活的是"触达"</strong>：真正发消息前，需要平台账号登录一次（拿登录态），老板确认后才会发送。这是安全设计，不是缺陷。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>"采集"已经 100% 在干活了，今天就能看到真实客户名单。"发送消息"需要你登录账号授权一次——就像微信网页版首次扫码登录一样简单。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>会不会乱发消息骚扰客户？</summary>
-    <div class="ans"><p>不会。系统默认"只读不发送"（fail-closed），要真正发消息必须老板确认。而且每条消息都个性化引用对方帖子，绝无群发，还做了限速（每天最多 10-20 条）、防封号设计。</p></div>
+    <div class="ans">
+      <p><strong>绝对不会乱发——这是这套系统最核心的安全设计。</strong></p>
+      <p><strong>第一道闸：默认只读不发送（fail-closed）。</strong>系统出厂时发送功能是<strong>完全关闭</strong>的，只能看、不能发。要真正发消息，必须一步步升级权限，每一步都要老板确认：</p>
+      <table>
+        <tr><th>发送模式</th><th>什么意思</th><th>能发吗</th></tr>
+        <tr><td>disabled（默认）</td><td>完全关闭，只能看</td><td>❌</td></tr>
+        <tr><td>dry_run</td><td>演练：只打印"会发给谁"</td><td>❌ 不真发</td></tr>
+        <tr><td>approval_only</td><td>每条要老板确认</td><td>✅ 人工批准</td></tr>
+        <tr><td>live_supervised</td><td>真实发送（有监督）</td><td>✅ 真实触达</td></tr>
+      </table>
+      <p><strong>第二道闸：每条消息都是"人话"不是"群发"。</strong>系统会引用对方帖子里的具体内容来打招呼（比如对方发了"求购比亚迪海豹从中国进口"），绝不发一模一样的模板。每天还有限额（新号 5-10 条起步），发太快会自动降速。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>打个比方：系统像一位"很有礼貌的业务员"——第一次上门先递名片（个性化打招呼），对方没理就过几天再问一次，还不理就礼貌告别。绝不半夜敲门、绝不群发骚扰。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>会不会被封号？</summary>
-    <div class="ans"><p>做了完整防封设计：个性化文案、随机间隔、日限额、1+1+1 跟进策略（不骚扰）、单日举报超 2 次自动全停。但任何自动化都有风险，所以默认谨慎。</p></div>
+    <div class="ans">
+      <p><strong>做了完整防封设计，把风险压到最低，但任何自动化都做不到 100% 零风险</strong>——所以我们默认非常谨慎。</p>
+      <table>
+        <tr><th>平台风控风险</th><th>我们怎么防</th></tr>
+        <tr><td>群发相同文案 → 判 spam</td><td>每条消息个性化引用对方帖子，绝不群发</td></tr>
+        <tr><td>频繁私信 → 限流</td><td>随机间隔 90-150 秒，每天限额（新号 5-10 条起步）</td></tr>
+        <tr><td>账号只发私信 → 行为异常</td><td>穿插浏览/点赞，伪装真人操作</td></tr>
+        <tr><td>含链接/促销词 → spam 过滤</td><td>第一句话不发链接、不用促销词</td></tr>
+        <tr><td>被举报 → 封号</td><td>1+1+1 策略（首触达→D+3 跟进→D+7 告别），不骚扰；单日举报超 2 次自动全停</td></tr>
+      </table>
+      <p><strong>真实情况说明</strong>：任何在平台上做主动触达的行为（哪怕人工）都有一定风控风险。我们能做的是把风险降到最低 + 出问题时第一时间止损（自动停止 + 告警通知你）。</p>
+      <div class="callout yellow"><div class="t">⚠️ 重要提醒</div>请用<strong>专门做获客的账号</strong>（不要用私人主号），万一被平台限制也不影响日常使用。新号前两周建议"养号"（正常浏览点赞，别一上来就猛发）。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>数据安全吗？会不会泄露？</summary>
-    <div class="ans"><p>数据在你自己电脑/服务器上，不经过我们。每天 3 次自动备份到你自己的百度网盘。员工操作全部审计可追溯。</p></div>
+    <div class="ans">
+      <p><strong>数据 100% 在你手里，不经过我们。</strong></p>
+      <div class="grid">
+        <div class="mini"><h4>🏠 数据放你家</h4><p>所有客户数据存在你自己电脑/服务器上（Docker 数据卷），不经过第三方、不经过我们公司。</p></div>
+        <div class="mini"><h4>☁️ 每天 3 次云备份</h4><p>每天 09:00 / 14:00 / 21:00 自动备份到你自己的百度网盘，电脑坏了也不丢。</p></div>
+        <div class="mini"><h4>🕵️ 员工操作可追溯</h4><p>每个员工登记名字，每次操作记录（谁/什么时间/IP/干了什么），老板随时可查。</p></div>
+        <div class="mini"><h4>🔒 密码门禁</h4><p>管理员功能有独立密码保护，员工默认看不到，防止误操作。</p></div>
+      </div>
+      <p><strong>说明</strong>：系统不收集你的任何信息；AI 分析用的接口不传客户隐私数据；备份到你自己的网盘（用你自己的账号），我们看不到。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>数据像放在你自己家里的保险柜，备份是往你自己另一个保险柜里再存一份。钥匙（账号密码）都在你手里。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>员工不会用怎么办？</summary>
-    <div class="ans"><p>每天 3 步：打开网页 → 确认名字 → 看今日任务。系统已经告诉你今天该聊谁、怎么聊（档案里有 AI 建议话术）。全程 2 分钟。本说明书第 7 章有完整图解。</p></div>
+    <div class="ans">
+      <p><strong>不用担心，员工每天只需要 2 分钟、3 步。</strong></p>
+      <table>
+        <tr><th>步骤</th><th>做什么</th><th>在哪</th></tr>
+        <tr><td>① 打开网页</td><td>浏览器打开 127.0.0.1:8890</td><td>桌面快捷方式/收藏夹</td></tr>
+        <tr><td>② 确认名字</td><td>点右上角自己名字（登记一次以后自动记住）</td><td>页面右上角</td></tr>
+        <tr><td>③ 看今日任务</td><td>看"🔥 高意向待聊"数字，点开看今天该聊谁</td><td>页面第二行数字卡</td></tr>
+      </table>
+      <p><strong>系统已经把"该聊谁、怎么聊"都准备好了：</strong></p>
+      <ul>
+        <li>点客户名 → 打开 360° 档案（身份/业务/痛点/需求）</li>
+        <li>档案里有 <strong>AI 建议话术</strong>（怎么开场、聊什么）</li>
+        <li>聊完点"📞 已联系" → 系统自动排下次跟进时间</li>
+      </ul>
+      <p>本说明书第 7 章有完整图解，交付时我们会给员工现场演示一遍。不识字都能学会——按钮就那几个。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>员工用这套系统就像用"今日待办清单"：系统说聊谁就聊谁，说怎么聊就怎么聊。不需要任何技术能力，会点鼠标就行。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>老板怎么看效果？</summary>
-    <div class="ans"><p>打开看板看 4 个地方：引擎状态（绿=正常）、业务漏斗（采集→评分→高意向→触达→回复）、今日任务（今天该聊谁）、目标 vs 实际（进度条）。</p></div>
+    <div class="ans">
+      <p><strong>打开看板（127.0.0.1:8890）看 4 个地方就够了：</strong></p>
+      <table>
+        <tr><th>看什么</th><th>在哪</th><th>正常是什么样</th><th>异常怎么办</th></tr>
+        <tr><td>引擎状态</td><td>顶部"运行中 · 自检通过"</td><td>绿色 = 一切正常</td><td>红色 → 看告警/排查表</td></tr>
+        <tr><td>业务漏斗</td><td>采集→评分→高意向→触达→回复</td><td>每层都有数，越往下越少但别断</td><td>某层为 0 → 看第 11 章断点</td></tr>
+        <tr><td>今日任务</td><td>第二行数字卡</td><td>🔥 高意向待聊 &gt; 0</td><td>高意向=0 → 采集/评分停了</td></tr>
+        <tr><td>目标 vs 实际</td><td>总机面板（/boss）</td><td>采集/触达/回复进度条</td><td>长期不达标 → 调话术/策略</td></tr>
+      </table>
+      <p><strong>老板不需要看细节</strong>，只看结果：今天新增多少客户、该聊的聊了没、有没有人回复。想看员工干了啥 → 操作审计里按名字/时间查。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>看板就像汽车的仪表盘：油量（引擎状态）、速度（漏斗）、今天去哪（今日任务）、目标进度（进度条）。红灯亮了才需要管，绿灯就放心开。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>电脑关机了系统还跑吗？</summary>
-    <div class="ans"><p>容器设了"开机自启"：电脑一开机它就自己跑。但电脑关机时它不跑（它跑在电脑上）。要 7×24 不关机，建议放一台常开的电脑或云服务器。</p></div>
+    <div class="ans">
+      <p><strong>分两种情况：</strong></p>
+      <table>
+        <tr><th>情况</th><th>系统状态</th><th>建议</th></tr>
+        <tr><td>电脑开机</td><td>✅ 自动运行（开机自启，不用手动点）</td><td>正常使用</td></tr>
+        <tr><td>电脑关机/睡眠</td><td>⏸ 暂停（它跑在电脑上）</td><td>上班开机就恢复，数据不丢</td></tr>
+        <tr><td>想要 7×24 不间断</td><td>—</td><td>放一台常开的电脑 / 云服务器（可选服务）</td></tr>
+      </table>
+      <p><strong>关键点</strong>：数据是安全的——关机不会丢数据，开机自动恢复。采集和跟进的任务会在开机后继续。</p>
+      <p><strong>如果你们想全天候自动获客</strong>（比如晚上也能自动发消息），建议部署到云服务器（我们提供部署服务）。对于大多数公司，"上班时间开着电脑"就够了——员工反正也是白天聊客户。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>系统像你店里的员工：你开门（开机）他就上班，你关门（关机）他就下班。活儿不会丢，第二天接着干。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>手机能打开看板吗？</summary>
-    <div class="ans"><p>同一网络下手机浏览器输入 <code>http://电脑IP:8890/</code> 可以打开（需防火墙放行）。要任何地方都能访问，需要部署到云端（可选服务）。</p></div>
+    <div class="ans">
+      <p><strong>能，分两个层级：</strong></p>
+      <table>
+        <tr><th>场景</th><th>能不能</th><th>怎么做</th></tr>
+        <tr><td>同一 Wi-Fi 下（办公室/家里）</td><td>✅ 可以</td><td>手机浏览器输入 <code>http://电脑IP:8890/</code>（防火墙放行即可）</td></tr>
+        <tr><td>出门在外 / 任何地方</td><td>✅ 可以（需配置）</td><td>部署到云端（可选服务），手机随时看</td></tr>
+      </table>
+      <p><strong>说明</strong>：同一网络下打开是最简单的方案，适合"人在办公室用手机瞄一眼"。如果要出差在外也能看、或几个城市的分公司都要看，建议部署到云服务器（一次性部署 + 少量月费，我们提供方案）。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>办公室内：手机连上同一个 Wi-Fi 就能看。出差在外：需要"上云"（就像把办公室搬到云端），这样在哪都能打开。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>升级会不会丢数据？</summary>
-    <div class="ans"><p>不会。数据存在独立数据卷，升级只换程序镜像。而且升级前有版本保存 + 云备份双保险，出问题一键回滚。</p></div>
+    <div class="ans">
+      <p><strong>不会丢——三重保险：</strong></p>
+      <div class="grid">
+        <div class="mini"><h4>① 数据独立存储</h4><p>数据存在独立"数据卷"里，升级只换程序外壳（镜像），数据完全不动。</p></div>
+        <div class="mini"><h4>② 升级前自动备份</h4><p>每次升级前先打版本快照（version.sh），出问题能一键回到升级前。</p></div>
+        <div class="mini"><h4>③ 每日云备份</h4><p>每天 09:00/14:00/21:00 自动备份到你的百度网盘，电脑坏了都不怕。</p></div>
+      </div>
+      <p><strong>升级流程很简单</strong>：交付方远程执行一条升级命令 → 新版本容器替换旧容器 → 数据自动接上 → 验证正常 → 完成。全程你不需要操作，也不影响当天使用。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>升级像"换房子装修"：家具（数据）先搬出来放好，装完再搬回去。而且装修前还拍了照（版本快照），装砸了能一键恢复原样。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>出问题了找谁？</summary>
-    <div class="ans"><p>系统有 8 项自动巡检（watchdog），出问题自动推微信告警。还有本说明书第 10 章故障排查表。解决不了找我们远程支持。</p></div>
+    <div class="ans">
+      <p><strong>三级保障，出问题不会没人管：</strong></p>
+      <table>
+        <tr><th>级别</th><th>保障</th><th>说明</th></tr>
+        <tr><td>第一级：自动巡检</td><td>8 项 watchdog 自动检查</td><td>容器健康、数据备份、业务指标（触达率/回复率）每 30 分钟自动查一遍，异常自动推<strong>微信告警</strong>到老板手机</td></tr>
+        <tr><td>第二级：自己排查</td><td>本说明书第 10 章故障排查表</td><td>90% 的问题表里都有答案（网页打不开/采集 0 条/引擎启动失败…）</td></tr>
+        <tr><td>第三级：远程支持</td><td>交付方远程协助</td><td>解决不了的事，一个消息我们远程连上帮你修（含首年运维支持）</td></tr>
+      </table>
+      <p><strong>特别说明"业务告警"</strong>：系统不只盯技术故障，还盯业务健康——比如触达率低于 5%、回复 0 条，也会主动提醒你"该调整话术/策略了"。这是很多软件没有的。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>系统自带"保安"（自动巡检）24 小时站岗，出事先报警（微信告警）；自己解决不了就找我们（远程支持）。你永远不是一个人。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>VK 是什么？为什么主做 VK？</summary>
-    <div class="ans"><p>VK 是俄罗斯最大的社交平台（相当于俄版微信+Facebook）。做中俄物流，VK 上的进口车商、电商卖家、批发商最活跃，B2B 客户浓度最高，所以是主战场。</p></div>
+    <div class="ans">
+      <p><strong>VK = VKontakte，俄罗斯最大的社交平台</strong>，相当于"俄版微信 + Facebook"的结合体。月活用户 7000 万+，是俄罗斯人日常交流、做生意的主阵地。</p>
+      <p><strong>为什么主做 VK？三个理由：</strong></p>
+      <div class="grid">
+        <div class="mini"><h4>① 客户浓度最高</h4><p>进口车商、电商卖家、批发商在 VK 上最活跃（很多只有 VK 没有其他平台）</p></div>
+        <div class="mini"><h4>② 信息最开放</h4><p>VK 允许按关键词/圈子公开搜索帖子，能精准找到"正在找中国物流"的人</p></div>
+        <div class="mini"><h4>③ 沟通最直接</h4><p>VK 私信是俄语区商务沟通主流方式，比 Instagram/TikTok 更适合 B2B 谈生意</p></div>
+      </div>
+      <table>
+        <tr><th>平台</th><th>角色</th><th>为什么</th></tr>
+        <tr><td>VK</td><td>主战场</td><td>B2B 客户浓度最高，信息开放，私信直接</td></tr>
+        <tr><td>Telegram</td><td>主战场</td><td>俄语区商务沟通首选，群组线索丰富</td></tr>
+        <tr><td>Instagram</td><td>辅助</td><td>视觉种草，进口车商/电商卖家多</td></tr>
+        <tr><td>TikTok</td><td>辅助</td><td>年轻用户多，需住宅代理</td></tr>
+        <tr><td>WhatsApp</td><td>私域</td><td>成交主力，需先加通讯录</td></tr>
+      </table>
+      <div class="callout blue"><div class="t">💡 小白解读</div>VK 就是"俄罗斯人的朋友圈+微信群"——你的目标客户（进口车商/卖家）每天泡在那。我们做的，就是去他们泡的地方精准找他们。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>系统怎么判断"这个客户值得聊"？</summary>
-    <div class="ans"><p>5 维 AI 评分：意向度（是不是在找物流）、匹配度（是不是做中国进口）、账号质量（活人/商家）、画像完整度、触达价值。80 分以上 S 级，70 以上 A 级。系统只让你聊 A 级以上。</p></div>
+    <div class="ans">
+      <p><strong>AI 用 5 个维度给每个客户打分（0-100 分）：</strong></p>
+      <table>
+        <tr><th>维度</th><th>看什么</th><th>为什么重要</th></tr>
+        <tr><td>意向度</td><td>是不是正在找物流/求购中国商品</td><td>正在找的人最容易成交</td></tr>
+        <tr><td>匹配度</td><td>是不是做中国进口的（车商/卖家/批发）</td><td>不做中国生意聊了也白聊</td></tr>
+        <tr><td>账号质量</td><td>活人/商家，还是僵尸号/广告号</td><td>避免浪费时间在假账号上</td></tr>
+        <tr><td>画像完整度</td><td>能不能拼出完整客户画像</td><td>画像越全话术越准</td></tr>
+        <tr><td>触达价值</td><td>客户体量、预算、成交潜力</td><td>大客户优先聊</td></tr>
+      </table>
+      <p><strong>等级划分</strong>：80+ 分 S 级（重点），70-79 A 级（优先），60-69 B 级（观察），以下 C/D（暂不主动）。<strong>系统只让你聊 S/A 级</strong>，把有限的精力花在最可能成交的人身上。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>就像销售经理给客户"贴标签"：A 类客户（正在找、有钱、能做）优先谈，C 类（随便问问）先放着。AI 帮你把 1000 个客户里最该聊的 20 个挑出来。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>客户回复了怎么办？</summary>
-    <div class="ans"><p>VK 每 2 分钟巡查回复，检测到回复 → 立即停止自动发送 → 转人工处理（标记 needs_human，通知你）。问价的客户绝不让 AI 乱答。</p></div>
+    <div class="ans">
+      <p><strong>客户一回复，系统立刻"交棒"给你——绝不擅自替你跟客户谈。</strong></p>
+      <div class="grid">
+        <div class="mini"><h4>① 自动巡查</h4><p>系统每 2 分钟检查一次有没有新回复（VK）</p></div>
+        <div class="mini"><h4>② 立即停手</h4><p>检测到回复 → 立即停止对这个客户的自动发送</p></div>
+        <div class="mini"><h4>③ 转人工</h4><p>标记 needs_human + 微信/看板通知你"有人回复了"</p></div>
+        <div class="mini"><h4>④ 你来接手</h4><p>你打开聊天直接谈（系统给出客户画像+历史话术辅助你）</p></div>
+      </div>
+      <p><strong>为什么不让 AI 继续聊？</strong>因为问价、谈条件的客户是最接近成交的，这种时候 AI 一旦说错话（报错价、说错时效），损失的是真金白银。所以设计原则是：<strong>自动获客，人工成交</strong>。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>系统像个"前台"：帮你把客户约到店里，客户一进门（回复），前台立刻喊你（通知），你亲自接待（人工谈）。绝不让前台替你做主。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>能同时多个员工用吗？</summary>
-    <div class="ans"><p>能。每个员工登记自己名字，系统区分谁在联系谁（员工追溯）。可以创建多个客资账号，各管各的客户。</p></div>
+    <div class="ans">
+      <p><strong>能，而且专门为"多员工协作"设计：</strong></p>
+      <div class="grid">
+        <div class="mini"><h4>👥 员工登记</h4><p>每个员工登记自己名字（2 秒），系统区分"谁在联系谁"</p></div>
+        <div class="mini"><h4>🕵️ 操作追溯</h4><p>每次操作记录谁/什么时间/干了什么，老板随时查</p></div>
+        <div class="mini"><h4>📂 客资账号分离</h4><p>可创建多个客资账号，各管各的客户池，不抢客户</p></div>
+        <div class="mini"><h4>📊 绩效透明</h4><p>每个员工聊了多少、标记多少已联系，后台一目了然</p></div>
+      </div>
+      <p><strong>适合什么规模</strong>：1 个老板 + 3-5 个业务员（典型外贸/物流团队）完全够用。每个员工打开网页 → 选自己名字 → 看自己的今日任务，互不干扰。</p>
+      <p><strong>权限设计</strong>：普通员工只能看自己该看的（今日任务/线索工作台），管理员功能（平台开关/清空/设置）有密码保护，防止误操作。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>就像办公室每个人有自己工位：各干各的活，老板能看每个工位的情况，但又不会互相抢客户、乱动别人的东西。</div>
+    </div>
   </details></div>
   <div class="faq-item"><details>
     <summary>这套系统要多少钱？</summary>
@@ -656,7 +861,18 @@ tar -czf backup-$(date +%Y%m%d).tar.gz data/ config/</code></pre>
   </details></div>
   <div class="faq-item"><details>
     <summary>我们想扩展新平台怎么办？</summary>
-    <div class="ans"><p>架构是插件化的：新平台加一个采集器 + 适配器即可。TikTok/速卖通已经就绪，随时可扩展（如 Ozon、Wildberries 等俄本土电商）。</p></div>
+    <div class="ans">
+      <p><strong>随时可以扩展——架构是"插件化"设计的。</strong></p>
+      <p><strong>什么意思</strong>：系统不是把 6 个平台写死，而是每个平台是一个独立"插件"。要加新平台，就写一个采集器 + 一个适配器，插进去就能用，不影响现有平台。</p>
+      <table>
+        <tr><th>状态</th><th>平台</th><th>说明</th></tr>
+        <tr><td>✅ 已就绪</td><td>TikTok / 速卖通</td><td>采集器已写好，随时可启用</td></tr>
+        <tr><td>📈 可扩展</td><td>Ozon / Wildberries</td><td>俄罗斯本土电商，客户很集中，加插件即可</td></tr>
+        <tr><td>🌐 任意平台</td><td>其他社交/电商平台</td><td>只要目标客户在，都能加</td></tr>
+      </table>
+      <p><strong>扩展成本</strong>：新平台加插件是一次性开发（交付方评估报价），加完以后和现有平台一样自动采集、评分、触达、看板。</p>
+      <div class="callout blue"><div class="t">💡 小白解读</div>系统像"可换镜头的相机"：现在是 6 个镜头（平台），想拍新场景（新平台），买个新镜头（插件）装上就行，机身（核心系统）不用换。</div>
+    </div>
   </details></div>
 </section>
 

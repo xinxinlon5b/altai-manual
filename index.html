@@ -111,6 +111,7 @@ strong{color:#fff}
   <h2>📋 目录</h2>
   <div class="grid">
     <a href="#s1"><span class="n">第1章</span> 这是什么？为什么要做？</a>
+    <a href="#s_docker"><span class="n">Docker科普</span> 什么是 Docker？为什么要用它？</a>
     <a href="#s2"><span class="n">第2章</span> 系统架构：一台自动获客的发动机</a>
     <a href="#s3"><span class="n">第3章</span> 容器说明书：怎么开 / 关 / 升级 / 备份</a>
     <a href="#s4"><span class="n">第4章</span> 产品结构：平台矩阵 + 功能模块 + 数据</a>
@@ -151,6 +152,44 @@ strong{color:#fff}
     <tr><td>换机器</td><td>重新配置一遍</td><td><strong>拷贝镜像 + 数据</strong>，秒级迁移</td></tr>
     <tr><td>多平台</td><td>Mac/Win 各做一套</td><td><strong>同一套代码</strong>，Mac/Win/Linux/云服务器都跑</td></tr>
   </table>
+</section>
+
+
+<!-- ═══════════ Docker 科普 ═══════════ -->
+<section id="s_docker">
+  <h2><span class="num">🟦</span>什么是 Docker？<span class="tail">——为什么这套系统要装在"容器"里</span></h2>
+  <p class="sub">给完全不懂技术的人看。看完这一章，你就明白"容器"是什么、为什么你的系统要这样装。</p>
+
+  <h3>🏠 打个比方：毛坯房 vs 精装小盒子</h3>
+  <div class="grid">
+    <div class="mini"><h4>🏚️ 传统部署 = 租毛坯大房子</h4><p>房子是空的，你要自己装水电、拉网线、买家具、装空调，全都要自己动手。而且环境很容易乱——<strong>A 软件需要 Python 3.8，B 软件需要 Python 3.12，两个装在一起就打架</strong>，不是你死就是我活。</p></div>
+    <div class="mini"><h4>📦 Docker 容器 = 标准化"精装小盒子"</h4><p>盒子里面已经打包好了：<strong>程序本身 + 它运行需要的全部依赖、配置、环境</strong>。拎起来就能住，不需要你再装任何东西。</p></div>
+  </div>
+
+  <h3>🚀 这个盒子有多省心？</h3>
+  <div class="grid">
+    <div class="mini"><h4>🌍 到哪都能跑</h4><p>这个盒子可以在任何装了 Docker 的电脑 / 服务器上，<strong>一模一样地跑起来</strong>。绝不会出现"在我电脑能跑，到你那就跑不起来"的环境问题。</p></div>
+    <div class="mini"><h4>🧱 互不打架</h4><p>每个盒子是独立的。A 软件要 Python 3.8、B 软件要 Python 3.12？各装各的盒子，互不干扰，各跑各的。</p></div>
+    <div class="mini"><h4>🔄 坏了换新</h4><p>盒子出问题，直接换一个新的同款盒子。数据存在盒子外面，不会丢。</p></div>
+    <div class="mini"><h4>💼 交付省心</h4><p>交付给客户时，直接给一个"装好所有东西的盒子"，双击启动就能用，不用远程折腾环境。</p></div>
+  </div>
+
+  <h3>📊 现在 Docker 是主流吗？</h3>
+  <div class="callout green">
+    <div class="t">✅ 结论：后端 / 服务器运维 / AI 服务部署，Docker 是绝对的主流标准工具</div>
+    <p>Docker 已经火了<strong>很多年</strong>，几乎所有互联网公司、云服务器、算力平台，部署项目时<strong>优先用 Docker</strong>。这是行业里最通用的做法。</p>
+    <p>不过也要说实话：普通日常家用、普通办公用户基本用不到它——它不是给个人电脑装软件用的工具，而是给"跑服务的电脑/服务器"用的。所以你不熟悉它，非常正常。</p>
+  </div>
+
+  <div class="callout blue">
+    <div class="t">💡 小白解读：一句话记住</div>
+    Docker 就是<strong>"把整个软件环境装进标准精装盒子的技术"</strong>。我们的获客系统装在盒子里，所以它到哪台电脑都能开箱即用、自己独立运行、升级不丢数据、互不打架——这就是为什么我们选择用容器来交付。
+  </div>
+
+  <div class="callout yellow">
+    <div class="t">⚠️ 你需要做什么？</div>
+    作为使用方，你<strong>完全不需要懂 Docker 怎么操作</strong>。交付的时候我们会把 Docker 装好、把盒子放好、把开关接好。你只需要：双击启动 → 打开网页 → 开始获客。就这么简单。
+  </div>
 </section>
 
 <!-- ═══════════ 第2章 ═══════════ -->

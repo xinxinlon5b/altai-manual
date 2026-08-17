@@ -112,6 +112,7 @@ strong{color:#fff}
   <div class="grid">
     <a href="#s1"><span class="n">第1章</span> 这是什么？为什么要做？</a>
     <a href="#s_docker"><span class="n">Docker科普</span> 什么是 Docker？为什么要用它？</a>
+    <a href="#s_hermes_docker"><span class="n">补充</span> Hermes 与 Docker：谁是司机，谁是车厢？</a>
     <a href="#s2"><span class="n">第2章</span> 系统架构：一台自动获客的发动机</a>
     <a href="#s3"><span class="n">第3章</span> 容器说明书：怎么开 / 关 / 升级 / 备份</a>
     <a href="#s4"><span class="n">第4章</span> 产品结构：平台矩阵 + 功能模块 + 数据</a>
@@ -189,6 +190,71 @@ strong{color:#fff}
   <div class="callout yellow">
     <div class="t">⚠️ 你需要做什么？</div>
     作为使用方，你<strong>完全不需要懂 Docker 怎么操作</strong>。交付的时候我们会把 Docker 装好、把盒子放好、把开关接好。你只需要：双击启动 → 打开网页 → 开始获客。就这么简单。
+  </div>
+</section>
+
+<!-- ═══════════ Hermes 与 Docker 的关系 ═══════════ -->
+<section class="chapter" id="s_hermes_docker">
+  <div class="chapter-tag">补充说明</div>
+  <h2>Hermes 与 Docker：谁是司机，谁是车厢？</h2>
+
+  <p>上一章说了 Docker 是"精装小盒子"，那 <strong>Hermes（赫尔墨斯，本系统的 AI 大脑）</strong> 和这个盒子是什么关系？很多客户第一次接触容易搞混，这里一次讲清楚。</p>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-t">🤖 Hermes = 司机（大脑）</div>
+      <ul>
+        <li><strong>负责"想"</strong>：理解你的业务、生成话术、判断客户意向、决定怎么跟进</li>
+        <li><strong>负责"看"</strong>：看数据、看报告、看有没有新客户、看有没有人回复</li>
+        <li><strong>负责"动"</strong>：指挥采集器去抓线索、指挥发送器去发消息</li>
+        <li>它是<strong>活的</strong>——每次对话、每条决策都是它在工作</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-t">📦 Docker = 车厢（房子）</div>
+      <ul>
+        <li><strong>负责"装"</strong>：把 Hermes 需要的所有程序、配置、依赖打包好</li>
+        <li><strong>负责"跑"</strong>：给 Hermes 提供一个稳定、干净、不会互相污染的运行环境</li>
+        <li><strong>负责"运"</strong>：把整套系统搬到任何电脑上都能一模一样跑起来</li>
+        <li>它是<strong>静的</strong>——它自己不思考，只负责当容器</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>用一个比喻理解：开餐厅</h3>
+  <div class="callout blue">
+    <div class="t">🍽️ Hermes 是厨师长，Docker 是后厨</div>
+    <p>想象一家中餐厅：</p>
+    <ul>
+      <li><strong>厨师长（Hermes）</strong>决定今天做什么菜、按什么配方、怎么招待客人——这是智慧。</li>
+      <li><strong>后厨（Docker）</strong>保证灶台、锅具、调料、水电都齐全，厨师长说"炒"就能马上炒，而且不管换到哪个门店，后厨设备一模一样——这是环境。</li>
+      <li>没有厨师长，后厨只是个空房间；没有后厨，厨师长连火都打不着。</li>
+    </ul>
+    <p><strong>所以：Hermes 负责"聪明"，Docker 负责"稳定"。两个缺一不可。</strong></p>
+  </div>
+
+  <h3>在你这套系统里，它们怎么配合？</h3>
+  <table>
+    <tr><th>环节</th><th>Hermes 的角色</th><th>Docker 的角色</th></tr>
+    <tr><td>采集客户</td><td>决定搜什么词、判断谁像客户</td><td>让采集工具稳定跑着，不卡不崩</td></tr>
+    <tr><td>AI 评分</td><td>给每个客户打分、定等级</td><td>提供评分引擎的运行环境</td></tr>
+    <tr><td>生成话术</td><td>根据客户帖子内容写个性化消息</td><td>保证话术引擎正常启动</td></tr>
+    <tr><td>发送消息</td><td>决定发给谁、发什么、何时发</td><td>让发送程序安全隔离地运行</td></tr>
+    <tr><td>看板展示</td><td>汇总数据、生成报表</td><td>把看板网页稳定地服务出来</td></tr>
+  </table>
+
+  <div class="callout yellow">
+    <div class="t">⚠️ 重要：它们不是同一个东西，但一起工作</div>
+    <ul>
+      <li>你可能在别的电脑上见过"Hermes"或类似 AI 助手，但<strong>不是所有 Hermes 都自带获客系统</strong>——获客能力是专门为你的业务配置的。</li>
+      <li>Docker 是一个<strong>通用技术</strong>（行业标准），不只服务 Hermes，很多公司的软件都用它部署。</li>
+      <li>对你来说，不用区分它们：你看到的是一个完整系统。只需要知道——<strong>AI 大脑负责思考，容器负责稳定承载，两者配合，系统才能 24 小时自动获客。</strong></li>
+    </ul>
+  </div>
+
+  <div class="callout green">
+    <div class="t">✅ 小白总结</div>
+    <strong>Hermes 是司机，Docker 是车。</strong>司机负责想往哪开、怎么开；车负责把司机安全送到。没有车，司机只能走路；没有司机，车只是停在车库。你的系统里，它们俩已经配合好了——你只管上车（打开网页），剩下的交给他们。
   </div>
 </section>
 
